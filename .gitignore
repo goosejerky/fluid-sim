@@ -1,0 +1,16 @@
+# ignore these file extensions
+
+*.log
+*.aux
+*.synctex.gz
+*.out
+*.swp
+*.lyx~
+*.Rhistory
+*.RData
+*.pygtex
+*.pygstyle
+*.nav
+*.snm
+*.toc
+plinko/python/__pycache__/*
