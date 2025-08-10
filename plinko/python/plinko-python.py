@@ -1,4 +1,5 @@
 from pegs import Peg
+import balls
 from matplotlib import pyplot as plt
 from matplotlib.patches import Rectangle
 from matplotlib.patches import Circle
