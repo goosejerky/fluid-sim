@@ -26,12 +26,16 @@ class Ball:
         
         self.velocity = starting_velocity
         
-        self.history = [Vector(0,0)]
+        self.pos_history = [Vector(xpos,ypos)]
+        self.vel_history = [starting_velocity]
         
         
-    def update_position(self,vel_vector):
+    def update_position(self,pos_vector,vel_vector):
         
-        self.xpos += vel_vector.x
-        self.ypos += vel_vector.y
+        self.xpos = pos_vector.x
+        self.ypos = pos_vector.y
         
-        self.history.append(vel_vector)
+        self.velocity = vel_vector
+        
+        self.pos_history.append(pos_vector)
+        self.vel_history.append(vel_vector)
