@@ -1,5 +1,5 @@
-from pegs import Peg
-import balls
+from pegs import *
+from balls import *
 from matplotlib import pyplot as plt
 from matplotlib.patches import Rectangle
 from matplotlib.patches import Circle
@@ -48,3 +48,6 @@ def plot_board(BOARD_DIM,PEG_LIST):
     #plt.ylim(ymax,ymax)
     plt.axis('square')
     plt.show()
+    
+
+plot_board(BOARD_DIM,PEG_LIST)
