@@ -8,7 +8,7 @@ STARTING_DROPy = 1
 MIN_x, MAX_x = -1,1
 MIN_y, MAX_y = -1,1
 
-dt = 0.01
+dt = 0.1
 
 
 BOARD_DIM = [MIN_x,MAX_x,MIN_y,MAX_y]
@@ -31,4 +31,4 @@ print(balldrop.pos_history)
 print(balldrop.vel_history)
 
 
-#plot_board(BOARD_DIM,PEG_LIST)
+plot_board(BOARD_DIM,PEG_LIST,balldrop)

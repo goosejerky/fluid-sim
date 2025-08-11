@@ -30,9 +30,27 @@ def plot_board(BOARD_DIM,PEG_LIST,ball):
     board.add_patch(Rectangle((xmin,ymin), rect_width, rect_height, fill=False))
     
     
-    #plot pegs
+    # plot pegs
     for peg in PEG_LIST:
         plot_peg(board, peg)
+    
+    
+    # plot ball position history
+    pos_hist = ball.pos_history
+    vel_hist = ball.vel_history
+    hist_length = ball.history_length
+    
+    for j in range(hist_length-1):
+        current_pos = pos_hist[j]
+        current_vel = vel_hist[j]
+        
+        dx = pos_hist[j+1].x - current_pos.x
+        dy = pos_hist[j+1].y - current_pos.y
+        print(dx,dy)
+        
+        plt.arrow(current_pos.x,current_pos.y, dx, dy, width=0.02)
+    
+    
     
     
     #plt.xlim(xmin,xmax)

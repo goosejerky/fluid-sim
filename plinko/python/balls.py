@@ -28,6 +28,7 @@ class Ball:
         
         self.pos_history = [Vector(xpos,ypos)]
         self.vel_history = [starting_velocity]
+        self.history_length = 0
         
         
     def update_position(self,pos_vector,vel_vector):
@@ -39,3 +40,4 @@ class Ball:
         
         self.pos_history.append(pos_vector)
         self.vel_history.append(vel_vector)
+        self.history_length += 1
