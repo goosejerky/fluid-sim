@@ -2,7 +2,7 @@ from pegs import *
 from balls import *
 from boardfuncs import *
 
-STARTING_DROPx = 0
+STARTING_DROPx = -0.1
 STARTING_DROPy = 0.5
 
 MIN_x, MAX_x = -1,1

@@ -1,3 +1,5 @@
+import numpy as np
+
 class Vector:
     def __init__(self,x,y,origin_x=0,origin_y=0):
         
@@ -84,6 +86,26 @@ class Ball:
             #print(s_start,v_start)
             s_col = pos_collision(self.current_pos(), self.velocity, peg)
             print(s_col)
+            
+            # get slope of tangent line m1
+            m1 = -(peg.center_x - s_col.x) / (peg.center_y - s_col.y)
+            
+            # get velocity slope
+            m2 = (self.ypos - s_col.y) / (self.xpos - s_col.y)
+            
+            arg = (m1 - m2) / (1 + m1*m2)
+            arg = np.abs(arg)
+            angle = np.arctan(arg)
+            angle = 90 - angle
+            print(angle)
+            
+            # multiply velocity vector by rotation matrix of angle
+            # this gives direction after bounce
+            v_newx = (newvel_vect.x * np.cos(angle)) - (newvel_vect.y * np.sin(angle))
+            v_newy = (newvel_vect.x * np.sin(angle)) + (newvel_vect.y * np.cos(angle))
+            
+            # now find way to calculate timestep
+            
             
             
 def pos_collision(start_pos_vector, vel_vector, peg, searchsize=0.01):
