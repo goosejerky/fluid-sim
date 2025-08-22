@@ -78,18 +78,3 @@ def get_new_position(ball, new_velocity, dt, gravity=Vector(0, -9.8)):
 
 
 
-def pos_collision(start_pos_vector, vel_vector, peg, searchsize=0.01):
-    
-    vel_norm = vel_vector.normal()
-    search_vect = vel_norm.scalar_mult(searchsize)
-    
-    testpt = start_pos_vector
-    numsteps = 0
-    while not peg.pt_inside(testpt.x,testpt.y):
-        testpt = testpt.vect_add(search_vect)
-        print(testpt)
-        
-    new_size = numsteps / vel_vector.get_size()
-    col_vect = vel_vector.scalar_mult(new_size)
-    
-    return col_vect

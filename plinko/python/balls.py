@@ -72,3 +72,35 @@ class Ball:
         
         outvect = Vector(self.xpos,self.ypos)
         return outvect
+    
+    def collision_update(self,newpos_vect,newvel_vect,peg):
+        
+        does_collide = peg.pt_inside(newpos_vect.x,newpos_vect.y)
+        if not does_collide:
+            return
+        else:
+            s_start = self.current_pos()
+            v_start = self.velocity
+            #print(s_start,v_start)
+            s_col = pos_collision(self.current_pos(), self.velocity, peg)
+            print(s_col)
+            
+            
+def pos_collision(start_pos_vector, vel_vector, peg, searchsize=0.01):
+     
+    vel_norm = vel_vector.normal()
+    search_vect = vel_norm.scalar_mult(searchsize)
+    
+    testpt = start_pos_vector
+    search_cutoff = int(vel_vector.get_size() / searchsize)
+    numsteps = 0
+    for k in range(search_cutoff):
+        testpt = testpt.vect_add(search_vect)
+        numsteps += 1
+        #print(testpt)
+        if peg.pt_inside(testpt.x,testpt.y):
+            #print(testpt,numsteps)
+            new_size = numsteps * vel_vector.get_size()
+            col_vect = vel_vector.scalar_mult(new_size)
+            
+            return col_vect
